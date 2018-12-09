@@ -1,0 +1,46 @@
+<br><br><h1 class="heading" > Add task</h1><br>
+
+<div class="container"  style="position: absolute; left: 320px;" >
+    <form #addTaskForm="ngForm">
+  <table>
+    <tr>
+      <th>Task</th>
+      <td><input type="text" class="form-control"  #TaskName1="ngModel" name="task" [(ngModel)]="item.task"></td>
+    </tr>
+    <tr>
+      <th>Priority</th>
+     <td><input type="range" class="form-control" #Priority1="ngModel" name="priority" [(ngModel)]="item.priority" value="0" step="1" min="1" max="30" >  </td>
+    </tr>
+    <tr>
+      <th>Parent Task Name</th>
+      <td>
+          <select class="form-control" #ParentID1="ngModel" name="parentid" [(ngModel)]="item.parentid">
+              <option *ngFor="let item of parenttaskList" value={{item.parentTask}}>
+                {{item.parentTask}}
+                </option>
+              </select>
+      </td>
+    </tr>
+    <tr>
+      <th>StartDate</th>
+      <td><input class="form-control" type="date" #SDate1="ngModel" name="startdate" [(ngModel)]="item.startdate">
+      <!-- <td><input type="text" #SDate1="ngModel" name="SDate1"
+         class="form-control"
+         bsDatepicker [(ngModel)]="item.SDate"></td> -->
+    </tr>
+    <tr>
+      <th>EndDate</th>
+      <td><input class="form-control" type="date" #EDate1="ngModel" name="enddate" [(ngModel)]="item.enddate"></td>
+      <!-- <td><input type="text" #EDate1="ngModel" name="EDate1"
+        class="form-control"
+        bsDatepicker [(ngModel)]="item.EDate"></td> -->
+    </tr>
+    <tr>
+      <td colspan="2">
+        <button class="btn btn-info" (click)="Add()">AddTask</button>
+        <button  class="btn btn-info"  (click)="reset(addTaskForm)">Reset</button>
+      </td>
+    </tr>
+  </table>
+  </form>
+</div>
